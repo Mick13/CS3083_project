@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Most Frequent Customers</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Most Frequent Customers in the Last Year</h1>
+
+    <!-- Display Frequent Customers -->
+    <h2>Customer Flight Counts</h2>
+    {% if customers %}
+        <table>
+            <tr>
+                <th>Customer Email</th>
+                <th>Flight Count</th>
+            </tr>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer.customer_email }}</td>
+                <td>{{ customer.flight_count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No frequent customers found.</p>
+    {% endif %}
+
+    <a href="/customer_flights">View Specific Customer's Flights</a><br>
+    <a href="/staff_home">Back</a> <br>
+</body>
+</html>

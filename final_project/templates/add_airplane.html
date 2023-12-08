@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Airplane</title>
+</head>
+<body>
+    <h1>Add New Airplane</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <form action="/add_airplane" method="post">
+        <label for="identification_number">Identification Number:</label>
+        <input type="text" id="identification_number" name="identification_number" required><br>
+
+        <label for="number_of_seats">Number of Seats:</label>
+        <input type="number" id="number_of_seats" name="number_of_seats" required><br>
+
+        <label for="manufacturing_company">Manufacturing Company:</label>
+        <input type="text" id="manufacturing_company" name="manufacturing_company" required><br>
+
+        <label for="model_number">Model Number:</label>
+        <input type="text" id="model_number" name="model_number" required><br>
+
+        <label for="manufacturing_date">Manufacturing Date:</label>
+        <input type="date" id="manufacturing_date" name="manufacturing_date" required><br>
+
+        <!-- <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br> -->
+
+        <button type="submit">Add Airplane</button>
+    </form>
+
+    <a href="/staff_home">Back</a> <br>
+
+</body>
+</html>

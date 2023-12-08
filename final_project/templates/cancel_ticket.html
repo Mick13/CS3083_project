@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>cancel Ticket</title>
+
+</head>
+<body>
+    <h1>Cancel Ticket</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+
+    {% if success_message %}
+        <p style="color: blue;">{{ success_message }}</p>
+    {% endif %}
+	
+    <!-- Ticket Cancellation Form -->
+    <form action="/cancel_ticket" method="post">
+        <label for="ticket_id">Ticket ID:</label>
+        <input type="text" id="ticket_id" name="ticket_id" required><br>
+        <button type="submit">Cancel Ticket</button>
+    </form>
+
+    <a href="/customer_home">Back to Home</a> <br>
+</body>
+</html>
