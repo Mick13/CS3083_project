@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Customer's Flights</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>View Flights Taken by Customer</h1>
+
+    <!-- Customer Search Form -->
+    <form action="/customer_flights" method="post">
+        <label for="customer_email">Customer Email:</label>
+        <input type="email" id="customer_email" name="customer_email" required><br>
+        <button type="submit">Search Flights</button>
+    </form>
+
+    <!-- Display Customer's Flights -->
+    {% if flights %}
+        <h2>Flight Results</h2>
+        {% if customer_email %}
+            <h4>Email: {{ customer_email }}</h4>
+        {% endif %}
+        <table>
+            <tr>
+                <th>Flight Number</th>
+                <th>Airline</th>
+                <th>Departure Airport</th>
+                <th>Arrival Airport</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+            </tr>
+            {% for flight in flights %}
+            <tr>
+                <td>{{ flight.flight_number }}</td>
+                <td>{{ flight.airline_name }}</td>
+                <td>{{ flight.departure_airport }}</td>
+                <td>{{ flight.arrival_airport }}</td>
+                <td>{{ flight.departure_date_time }}</td>
+                <td>{{ flight.arrival_date_time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No flights found for this customer.</p>
+    {% endif %}
+
+
+    <a href="/frequent_customers">Back to Most Frequent Customers</a> <br>
+    <a href="/staff_home">Back</a> <br>
+</body>
+</html>

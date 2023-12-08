@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Profile</title>
+</head>
+<body>
+    <h1>Update Profile</h1>
+    {% if error_phone %}
+        <p style="color: red;">{{ error_phone }}</p>
+    {% endif %}
+
+    {% if error_email %}
+        <p style="color: red;">{{ error_email }}</p>
+    {% endif %}
+
+
+    {% if email_success %}
+        <p style="color: blue;">{{ email_success }}</p>
+    {% endif %}
+
+    {% if phone_success %}
+    <p style="color: blue;">{{ phone_success }}</p>
+    {% endif %}
+
+    <form action="/staff_update_profile" method="post">
+        <label for="email">Add Email:</label>
+        <input type="text" id="email" name="email" required><br>
+
+        <label for="phone">Add Phone Number:</label>
+        <input type="tel" id="phone" name="phone"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <a href="/staff_home">Back</a>
+</body>
+</html>
