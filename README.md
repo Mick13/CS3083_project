@@ -1,5 +1,5 @@
 # CS3083_project
-Intro to databases final project
+Database Development and Management final project
 To run:
   Download files in a local folder 
   Navigate to files in terminal or simply open terminal at foler
